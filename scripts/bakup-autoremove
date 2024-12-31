@@ -16,7 +16,7 @@ confirm_run
 echo "Auto-removing all backup files except for 1 of each type..."
 
 # Configuration
-backup_dir="/media/cenmate/bakup"
+backup_dir="~"
 
 # Number of backup copies to retain
 num_backups_to_keep=1
@@ -35,20 +35,6 @@ if [ $num_backups_to_remove -gt 0 ]; then
     done
 fi
 
-# Remove old root hourly backups exceeding the specified limit
-num_backups=$(ls -1 "$backup_dir" | grep -c '^su-hourly-bakup_')
-num_backups_to_remove=$((num_backups - num_backups_to_keep))
-
-if [ $num_backups_to_remove -gt 0 ]; then
-    # List old hourly backups, sort by timestamp, and remove the excess
-    old_backups=$(ls -1 "$backup_dir" | grep '^su-hourly-bakup_' | sort | head -n $num_backups_to_remove)
-    
-    for old_backup in $old_backups; do
-        rm "$backup_dir/$old_backup"
-        echo "Removed old root hourly backups: $old_backup"
-    done
-fi
-
 # Remove old daily backups exceeding the specified limit
 num_backups=$(ls -1 "$backup_dir" | grep -c '^daily-bakup_')
 num_backups_to_remove=$((num_backups - num_backups_to_keep))
@@ -63,20 +49,6 @@ if [ $num_backups_to_remove -gt 0 ]; then
     done
 fi
 
-# Remove old root daily backups exceeding the specified limit
-num_backups=$(ls -1 "$backup_dir" | grep -c '^su-daily-bakup_')
-num_backups_to_remove=$((num_backups - num_backups_to_keep))
-
-if [ $num_backups_to_remove -gt 0 ]; then
-    # List old root daily backups, sort by timestamp, and remove the excess
-    old_backups=$(ls -1 "$backup_dir" | grep '^su-daily-bakup_' | sort | head -n $num_backups_to_remove)
-
-    for old_backup in $old_backups; do
-        rm "$backup_dir/$old_backup"
-        echo "Removed old root daily backups: $old_backup"
-    done
-fi
-
 # Remove old weekly backups exceeding the specified limit
 num_backups=$(ls -1 "$backup_dir" | grep -c '^weekly-bakup_')
 num_backups_to_remove=$((num_backups - num_backups_to_keep))
@@ -88,20 +60,6 @@ if [ $num_backups_to_remove -gt 0 ]; then
     for old_backup in $old_backups; do
         rm "$backup_dir/$old_backup"
         echo "Removed old weekly backups: $old_backup"
-    done
-fi
-
-# Remove old root weekly backups exceeding the specified limit
-num_backups=$(ls -1 "$backup_dir" | grep -c '^su-weekly-bakup_')
-num_backups_to_remove=$((num_backups - num_backups_to_keep))
-
-if [ $num_backups_to_remove -gt 0 ]; then
-    # List old root weekly backups, sort by timestamp, and remove the excess
-    old_backups=$(ls -1 "$backup_dir" | grep '^su-weekly-bakup_' | sort | head -n $num_backups_to_remove)
-
-    for old_backup in $old_backups; do
-        rm "$backup_dir/$old_backup"
-        echo "Removed old root weekly backups: $old_backup"
     done
 fi
 
