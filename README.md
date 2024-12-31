@@ -9,7 +9,7 @@ npm install -g @ok-penalty-218/ubuntu-bakup@latest
 ```
 
 ## Post-Insallation
-Run command ```bakup``` to verify functionality.
+Run command ```bakup``` to verify functionality and to run a manual backup following installation.
 
 ## Configuration
 Default Config File Location: ```\etc\bakup\config.json```<br>
