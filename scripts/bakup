@@ -22,7 +22,7 @@ num_backups_to_remove=$((num_backups - num_backups_to_keep))
 
 if [ $num_backups_to_remove -gt 0 ]; then
     # List old backups, sort by timestamp, and remove the excess
-    old_backups=$(ls -1 "$backup_dir" | grep '^backup_' | sort | head -n $num_backups_to_rem>
+    old_backups=$(ls -1 "$backup_dir" | grep '^backup_' | sort | head -n $num_backups_to_rem)
     
     for old_backup in $old_backups; do
         rm "$backup_dir/$old_backup"
