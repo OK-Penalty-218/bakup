@@ -12,6 +12,7 @@ fi
 # Read backup directory and source directories from the config file using jq
 backup_dir=$(jq -r '.backupDir' "$CONFIG_FILE")
 source_dirs=$(jq -r '.sourceDirs | join(" ")' "$CONFIG_FILE")
+
 # Number of backup copies to retain
 num_backups_to_keep=6
 
