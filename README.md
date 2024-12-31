@@ -8,6 +8,8 @@ Install globally using npm:
 
 ```bash
 npm install -g @ok-penalty-218/ubuntu-bakup
+```
 
-## Installation
-lsk;ng;l
+## Configuration
+
+Edit the config.json file located in "\etc\bakup\config.json" to set your bakup location.
