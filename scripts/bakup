@@ -5,7 +5,7 @@ CONFIG_FILE="/etc/bakup/.config.json"
 
 # Read backup directory, source directories, and number of backups to keep for each type from the config file
 backup_dir=$(jq -r '.backupDir' "$CONFIG_FILE")
-source_dirs=$(jq -r '.sourceDirs | join(" ")' "$CONFIG_FILE")
+source_dirs=($(jq -r '.sourceDirs[]' "$CONFIG_FILE"))
 
 # Read the number of backups to keep for this specific backup type (e.g., weekly, daily, etc.)
 backup_type=manual  # This should be passed as an argument when calling the script (weekly, daily, etc.)
