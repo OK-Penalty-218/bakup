@@ -1,8 +1,17 @@
 #!/bin/bash
 
-# Configuration
-backup_dir="~"
-source_dirs=("/lib" "/run" "/sys" "/bin" "/etc" "/opt" "/sbin" "/usr" "/root" "/boot" "/home" "/srv" "/var")
+# Path to the configuration file
+CONFIG_FILE="/etc/bakup/.config.json"
+
+# Check if the config file exists
+if [ ! -f "$CONFIG_FILE" ]; then
+  echo "Configuration file not found at $CONFIG_FILE. Exiting."
+  exit 1
+fi
+
+# Read backup directory and source directories from the config file using jq
+backup_dir=$(jq -r '.backupDir' "$CONFIG_FILE")
+source_dirs=$(jq -r '.sourceDirs | join(" ")' "$CONFIG_FILE")
 
 # Number of backup copies to retain
 num_backups_to_keep=2
