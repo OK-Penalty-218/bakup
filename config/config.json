@@ -1,3 +1,19 @@
 {
-  "backupLocation": "~/backup"
+  "backupDir": "~/backup",
+  "sourceDirs": [
+    "/lib", 
+    "/run", 
+    "/sys", 
+    "/bin", 
+    "/etc", 
+    "/opt", 
+    "/sbin", 
+    "/usr", 
+    "/root", 
+    "/boot", 
+    "/home", 
+    "/srv", 
+    "/var"
+  ]
 }
+
