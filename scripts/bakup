@@ -32,7 +32,7 @@ fi
 
 # Check the exit code of te tar command
 if [ $? -eq 0 ]; then
-        echo "Backup completed successfully: $backup_file"
+	echo "Backup completed successfully: $backup_file"
 else
-        echo "Error: tar failed with status $?. Please check the source directories and permissions"
+	echo "Error: tar failed with status $?. Please check the source directories and permissions."
 fi
