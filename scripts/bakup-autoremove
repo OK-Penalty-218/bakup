@@ -24,7 +24,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
   exit 1
 fi
 
-# Read backup directory and from the config file using jq
+# Read backup directory from the config file using jq
 backup_dir=$(jq -r '.backupDir' "$CONFIG_FILE")
 
 # Number of backup copies to retain
