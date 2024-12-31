@@ -1,5 +1,5 @@
 {
-  "backupDir": "~/backup",
+  "backupDir": "<configure backup directory in /etc/bakup/config.json>",
   "sourceDirs": [
     "/lib", 
     "/run", 
