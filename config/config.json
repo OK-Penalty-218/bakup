@@ -14,8 +14,8 @@
     "/home", 
     "/srv", 
     "/var"
-  ]
-    "numBackupsToKeep": {
+  ],
+  "numBackupsToKeep": {
     "weekly": 3,
     "daily": 3,
     "hourly": 6,
