@@ -1,0 +1,122 @@
+#!/bin/bash
+
+# Function to ask for confirmation before running the script
+confirm_run() {
+    read -p "WARNING! Do you want to run this script? This action will PURGE ALL backup files. (y/n): " choice
+    if [[ "$choice" != "y" && "$choice" != "Y" ]]; then
+        echo "Exiting without running the script."
+        exit 0
+    fi
+}
+
+# Call the confirmation function
+confirm_run
+
+# Your script logic starts here
+echo "Purging all backup files..."
+
+# Configuration
+backup_dir="/media/cenmate/bakup"
+
+# Number of backup copies to retain
+num_backups_to_keep=0
+
+# Remove old hourly backups exceeding the specified limit
+num_backups=$(ls -1 "$backup_dir" | grep -c '^hourly-bakup_')
+num_backups_to_remove=$((num_backups - num_backups_to_keep))
+
+if [ $num_backups_to_remove -gt 0 ]; then
+    # List old hourly backups, sort by timestamp, and remove the excess
+    old_backups=$(ls -1 "$backup_dir" | grep '^hourly-bakup_' | sort | head -n $num_backups_to_remove)
+    
+    for old_backup in $old_backups; do
+        rm "$backup_dir/$old_backup"
+        echo "Purged old hourly backups: $old_backup"
+    done
+fi
+
+# Remove old root hourly backups exceeding the specified limit
+num_backups=$(ls -1 "$backup_dir" | grep -c '^su-hourly-bakup_')
+num_backups_to_remove=$((num_backups - num_backups_to_keep))
+
+if [ $num_backups_to_remove -gt 0 ]; then
+    # List old hourly backups, sort by timestamp, and remove the excess
+    old_backups=$(ls -1 "$backup_dir" | grep '^su-hourly-bakup_' | sort | head -n $num_backups_to_remove)
+    
+    for old_backup in $old_backups; do
+        rm "$backup_dir/$old_backup"
+        echo "Purged old root hourly backups: $old_backup"
+    done
+fi
+
+# Remove old daily backups exceeding the specified limit
+num_backups=$(ls -1 "$backup_dir" | grep -c '^daily-bakup_')
+num_backups_to_remove=$((num_backups - num_backups_to_keep))
+
+if [ $num_backups_to_remove -gt 0 ]; then
+    # List old daily backups, sort by timestamp, and remove the excess
+    old_backups=$(ls -1 "$backup_dir" | grep '^daily-bakup_' | sort | head -n $num_backups_to_remove)
+
+    for old_backup in $old_backups; do
+        rm "$backup_dir/$old_backup"
+        echo "Purged old daily backups: $old_backup"
+    done
+fi
+
+# Remove old root daily backups exceeding the specified limit
+num_backups=$(ls -1 "$backup_dir" | grep -c '^su-daily-bakup_')
+num_backups_to_remove=$((num_backups - num_backups_to_keep))
+
+if [ $num_backups_to_remove -gt 0 ]; then
+    # List old root daily backups, sort by timestamp, and remove the excess
+    old_backups=$(ls -1 "$backup_dir" | grep '^su-daily-bakup_' | sort | head -n $num_backups_to_remove)
+
+    for old_backup in $old_backups; do
+        rm "$backup_dir/$old_backup"
+        echo "Purged old root daily backups: $old_backup"
+    done
+fi
+
+# Remove old weekly backups exceeding the specified limit
+num_backups=$(ls -1 "$backup_dir" | grep -c '^weekly-bakup_')
+num_backups_to_remove=$((num_backups - num_backups_to_keep))
+
+if [ $num_backups_to_remove -gt 0 ]; then
+    # List old weekly backups, sort by timestamp, and remove the excess
+    old_backups=$(ls -1 "$backup_dir" | grep '^weekly-bakup_' | sort | head -n $num_backups_to_remove)
+
+    for old_backup in $old_backups; do
+        rm "$backup_dir/$old_backup"
+        echo "Purged old weekly backups: $old_backup"
+    done
+fi
+
+# Remove old root weekly backups exceeding the specified limit
+num_backups=$(ls -1 "$backup_dir" | grep -c '^su-weekly-bakup_')
+num_backups_to_remove=$((num_backups - num_backups_to_keep))
+
+if [ $num_backups_to_remove -gt 0 ]; then
+    # List old root weekly backups, sort by timestamp, and remove the excess
+    old_backups=$(ls -1 "$backup_dir" | grep '^su-weekly-bakup_' | sort | head -n $num_backups_to_remove)
+
+    for old_backup in $old_backups; do
+        rm "$backup_dir/$old_backup"
+        echo "Purged old root weekly backups: $old_backup"
+    done
+fi
+
+# Remove old manual backups exceeding the specified limit
+num_backups=$(ls -1 "$backup_dir" | grep -c '^backup_')
+num_backups_to_remove=$((num_backups - num_backups_to_keep))
+
+if [ $num_backups_to_remove -gt 0 ]; then
+    # List old manual backups, sort by timestamp, and remove the excess
+    old_backups=$(ls -1 "$backup_dir" | grep '^backup_' | sort | head -n $num_backups_to_remove)
+
+    for old_backup in $old_backups; do
+        rm "$backup_dir/$old_backup"
+        echo "Purged old manual backups: $old_backup"
+    done
+fi
+
+echo "Purged all backups successfully."

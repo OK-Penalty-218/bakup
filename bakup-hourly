@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Configuration
+backup_dir="/media/cenmate/bakup"
+source_dirs=("/lib" "/run" "/sys" "/bin" "/etc" "/opt" "/sbin" "/usr" "/root" "/boot" "/home" "/srv" "/var")
+
+# Number of backup copies to retain
+num_backups_to_keep=6
+
+# Create backup directory if not exists
+mkdir -p "$backup_dir"
+
+# Generate backup file name with timestamp
+backup_file="$backup_dir/hourly-bakup_$(date +%-d%H%M)W$(date +%b%Y).tar.gz"
+
+# Perform backup
+sudo tar -czvf "$backup_file" "${source_dirs[@]}"
+
+# Remove old backups exceeding the specified limit
+num_backups=$(ls -1 "$backup_dir" | grep -c '^hourly-bakup_')
+num_backups_to_remove=$((num_backups - num_backups_to_keep))
+
+if [ $num_backups_to_remove -gt 0 ]; then
+    # List old backups, sort by timestamp, and remove the excess
+    old_backups=$(ls -1 "$backup_dir" | grep '^hourly-bakup_' | sort | head -n $num_backups_to_remove)
+    
+    for old_backup in $old_backups; do
+        rm "$backup_dir/$old_backup"
+        echo "Removed old backup: $old_backup"
+    done
+fi
+
+# Check the exit code of te tar command
+if [ $? -eq 0 ]; then
+	echo "Backup completed successfully: $backup_file"
+else
+	echo "Error: tar failed with status $?. Please check the source directories and permissions."
+fi
