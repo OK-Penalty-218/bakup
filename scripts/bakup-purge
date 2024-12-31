@@ -16,7 +16,7 @@ confirm_run
 echo "Purging all backup files..."
 
 # Configuration
-backup_dir="/media/cenmate/bakup"
+backup_dir="~"
 
 # Number of backup copies to retain
 num_backups_to_keep=0
