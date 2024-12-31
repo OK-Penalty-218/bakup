@@ -18,8 +18,8 @@
     "backup", "ubuntu", "automation"
   ],
   "scripts": {
-    "install": "./install.sh",
-    "uninstall": "./uninstall.sh"
+    "install": "install.sh",
+    "uninstall": "uninstall.sh"
   },
     "files": [
     "/config/.config.json"
