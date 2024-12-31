@@ -29,3 +29,7 @@ By Default this package will enable the following crontab jobs under the root us
 This package has 4 different types of backups: manual, hourly, daily, and weekly.<br>
 To remove all, but 1 of each type of backup run command: ```bakup-autoremove```<br>
 To purge all backup files run command: ```bakup-purge```
+To do a manual backup run command: ```bakup```<br>
+
+### Notes
+It is recommended that you run all commands with ```sudo``` to avoid running into permission issues.
