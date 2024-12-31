@@ -13,8 +13,15 @@ fi
 backup_dir=$(jq -r '.backupDir' "$CONFIG_FILE")
 source_dirs=$(jq -r '.sourceDirs | join(" ")' "$CONFIG_FILE")
 
-# Number of backup copies to retain
-num_backups_to_keep=3
+# Read the number of backups to keep for this specific backup type (e.g., weekly, daily, etc.)
+backup_type=daily  # This should be passed as an argument when calling the script (weekly, daily, etc.)
+num_backups_to_keep=$(jq -r ".numBackupsToKeep.${backup_type}" "$CONFIG_FILE")
+
+# Validate the backup type
+if [ -z "$num_backups_to_keep" ]; then
+    echo "Invalid backup type specified. Please use one of: weekly, daily, hourly, manual."
+    exit 1
+fi
 
 # Create backup directory if not exists
 mkdir -p "$backup_dir"
