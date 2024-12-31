@@ -7,18 +7,11 @@
     "install": "./install.sh",
     "uninstall": "./uninstall.sh"
   },
-  "publishConfig": {
-  "registry": "https://npm.pkg.github.com"
-},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/OK-Penalty-218/bakup.git"
-  },
   "keywords": [
-    "backup"
+    "backup" "ubuntu" "automation"
   ],
   "author": "ok-penalty-218",
-  "license": "ISC",
+  "license": "ISC" "GNI",
   "bugs": {
     "url": "https://github.com/OK-Penalty-218/bakup/issues"
   },
