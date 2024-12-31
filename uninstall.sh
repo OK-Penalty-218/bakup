@@ -23,6 +23,9 @@ else
   echo "Configuration directory not found: $CONFIG_DIR"
 fi
 
+# Removing local files
+rm -R /usr/local/lib/node_modules/@ok-penalty-218/ubuntu-bakup
+
 # Remove crontab entries related to backup
 echo "Removing crontab jobs for backup..."
 crontab -l 2>/dev/null | grep -v "$TARGET_DIR/backup-" | crontab -
