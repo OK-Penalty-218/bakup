@@ -4,15 +4,12 @@
   "description": "automated bakups",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "./install.sh",
+    "uninstall": "./uninstall.sh"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OK-Penalty-218/bakup.git"
-  },
-    "scripts": {
-    "install": "./install.sh",
-    "uninstall": "./uninstall.sh"
   },
   "keywords": [
     "backup"
