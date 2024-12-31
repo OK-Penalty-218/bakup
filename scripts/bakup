@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-backup_dir="~bakup"
-source_dirs=("/lib" "/run" "/sys" "/bin" "/etc" "/opt" "/sbin" "/usr" "/root" "/boot" "/home" "/srv" "/v>
+backup_dir="~backups"
+source_dirs=("/lib" "/run" "/sys" "/bin" "/etc" "/opt" "/sbin" "/usr" "/root" "/boot" "/home" "/sr>
 
 # Number of backup copies to retain
 num_backups_to_keep=2
@@ -22,7 +22,7 @@ num_backups_to_remove=$((num_backups - num_backups_to_keep))
 
 if [ $num_backups_to_remove -gt 0 ]; then
     # List old backups, sort by timestamp, and remove the excess
-    old_backups=$(ls -1 "$backup_dir" | grep '^backup_' | sort | head -n $num_backups_to_remove)
+    old_backups=$(ls -1 "$backup_dir" | grep '^backup_' | sort | head -n $num_backups_to_rem>
     
     for old_backup in $old_backups; do
         rm "$backup_dir/$old_backup"
@@ -34,5 +34,5 @@ fi
 if [ $? -eq 0 ]; then
         echo "Backup completed successfully: $backup_file"
 else
-        echo "Error: tar failed with status $?. Please check the source directories and permissions."
+        echo "Error: tar failed with status $?. Please check the source directories and permission>
 fi
