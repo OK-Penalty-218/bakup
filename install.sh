@@ -16,8 +16,9 @@ cp scripts/* "$TARGET_DIR"
 chmod +x "$TARGET_DIR"/*
 
 # Add crontab jobs
-echo "Setting up crontab jobs..."
-(crontab -l 2>/dev/null; echo "0 * * * * $TARGET_DIR/script1.sh") | crontab -
-(crontab -l 2>/dev/null; echo "30 2 * * * $TARGET_DIR/script2.sh") | crontab -
+echo "Setting up automated crontab backup jobs..."
+(crontab -l 2>/dev/null; echo "0 4 * * 7  $TARGET_DIR/bakup-weekly") | crontab -
+(crontab -l 2>/dev/null; echo "0 3 * * * $TARGET_DIR/bakup-daily") | crontab -
+(crontab -l 2>/dev/null; echo "0 * * * * $TARGET_DIR/bakup-hourly") | crontab -
 
 echo "Installation complete."
