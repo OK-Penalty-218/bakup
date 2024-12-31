@@ -24,8 +24,8 @@
     "scripts/"  
   ],
   "scripts": {
-    "install": "/install.sh",
-    "uninstall": "/uninstall.sh"
+    "install": "sh ./install.sh",
+    "uninstall": "sh ./uninstall.sh"
   },
 
   "publishConfig": {
