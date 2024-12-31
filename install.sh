@@ -21,7 +21,7 @@ chmod +x "$BIN_DIR"/*
 
 # Move all other files to /etc/bakup
 echo "Installing configuration files to $CONFIG_DIR..."
-cp config/.c
+cp config/config.json "$CONFIG_DIR"
 
 # Add crontab jobs
 echo "Setting up automated crontab backup jobs..."
