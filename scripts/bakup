@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Configuration
-backup_dir="~"
-source_dirs=("/lib" "/run" "/sys" "/bin" "/etc" "/opt" "/sbin" "/usr" "/root" "/boot" "/home" "/srv" "/var")
+CONFIG_FILE="./config/.config.json"
+backup_dir=$(jq -r '.backupDir' "$CONFIG_FILE")
+source_dirs=$(jq -r '.sourceDirs | join(" ")' "$CONFIG_FILE")
 
 # Number of backup copies to retain
 num_backups_to_keep=2
