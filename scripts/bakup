@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-backup_dir="~backups"
+backup_dir="~"
 source_dirs=("/lib" "/run" "/sys" "/bin" "/etc" "/opt" "/sbin" "/usr" "/root" "/boot" "/home" "/srv" "/var")
 
 # Number of backup copies to retain
