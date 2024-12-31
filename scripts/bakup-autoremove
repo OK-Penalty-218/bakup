@@ -16,7 +16,7 @@ confirm_run
 echo "Auto-removing all backup files except for 1 of each type..."
 
 # Path to the configuration file
-CONFIG_FILE="/etc/bakup/.config.json"
+CONFIG_FILE="/etc/bakup/config.json"
 
 # Check if the config file exists
 if [ ! -f "$CONFIG_FILE" ]; then
