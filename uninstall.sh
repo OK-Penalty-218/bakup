@@ -1,6 +1,8 @@
 #!/bin/bash
 
+# Define the target folder and config directory
 TARGET_DIR="/usr/local/bin"
+CONFIG_DIR="/etc/bakup"
 
 # Ensure the user has sudo privileges
 if [ "$EUID" -ne 0 ]; then
@@ -8,16 +10,17 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
-# Remove scripts
-echo "Removing scripts from $TARGET_DIR..."
-rm -f "$TARGET_DIR/bakup" "$TARGET_DIR/bakup-autoremove" "$TARGET_DIR/bakup-purge"
-rm -f "$TARGET_DIR/bakup-hourly" "$TARGET_DIR/bakup-daily" "$TARGET_DIR/bakup-weekly"
-rm -f "$TARGET_DIR/su-bakup-hourly" "$TARGET_DIR/su-bakup-daily" "$TARGET_DIR/su-bakup-weekly"
+# Remove backup scripts
+echo "Removing backup scripts from $TARGET_DIR..."
+sudo rm -rf "$TARGET_DIR/*"
 
 # Remove crontab jobs
 echo "Removing crontab jobs..."
-crontab -l | grep -v "$TARGET_DIR/bakup-weekly" | crontab -
-crontab -l | grep -v "$TARGET_DIR/bakup-daily" | crontab -
-crontab -l | grep -v "$TARGET_DIR/bakup-hourly" | crontab -
+(crontab -l | grep -v -F "$TARGET_DIR") | crontab -
 
+# Remove config directory
+echo "Removing config directory $CONFIG_DIR..."
+sudo rm -rf "$CONFIG_DIR"
+
+# Confirm completion
 echo "Uninstallation complete."
