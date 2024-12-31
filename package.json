@@ -21,6 +21,9 @@
     "install": "./install.sh",
     "uninstall": "./uninstall.sh"
   },
+    "files": [
+    "/config/.config.json"
+  ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
