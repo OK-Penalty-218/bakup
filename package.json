@@ -17,14 +17,18 @@
   "keywords": [
     "backup", "ubuntu", "automation"
   ],
+  "files": [
+    "install.sh",
+    "uninstall.sh",
+    "config/",
+    "scripts/"  
+  ],
   "scripts": {
     "install": "/install.sh",
     "uninstall": "/uninstall.sh"
   },
-    "files": [
-    "/config/.config.json"
-  ],
+
   "publishConfig": {
-  "registry": "https://registry.npmjs.org/"
-}
+    "registry": "https://registry.npmjs.org/"
+  }
 }
