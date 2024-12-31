@@ -10,11 +10,14 @@ fi
 
 # Remove scripts
 echo "Removing scripts from $TARGET_DIR..."
-rm -f "$TARGET_DIR/script1.sh" "$TARGET_DIR/script2.sh"
+rm -f "$TARGET_DIR/bakup" "$TARGET_DIR/bakup-autoremove" "$TARGET_DIR/bakup-purge"
+rm -f "$TARGET_DIR/bakup-hourly" "$TARGET_DIR/bakup-daily" "$TARGET_DIR/bakup-weekly"
+rm -f "$TARGET_DIR/su-bakup-hourly" "$TARGET_DIR/su-bakup-daily" "$TARGET_DIR/su-bakup-weekly"
 
 # Remove crontab jobs
 echo "Removing crontab jobs..."
-crontab -l | grep -v "$TARGET_DIR/script1.sh" | crontab -
-crontab -l | grep -v "$TARGET_DIR/script2.sh" | crontab -
+crontab -l | grep -v "$TARGET_DIR/bakup-weekly" | crontab -
+crontab -l | grep -v "$TARGET_DIR/bakup-daily" | crontab -
+crontab -l | grep -v "$TARGET_DIR/bakup-hourly" | crontab -
 
 echo "Uninstallation complete."
