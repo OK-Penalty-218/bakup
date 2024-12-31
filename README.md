@@ -12,8 +12,8 @@ npm install -g @ok-penalty-218/ubuntu-bakup
 Run command ```bakup``` to verify functionality.
 
 ## Configuration
-Default Config File Location: ```\etc\bakup\config.json```
-Default Backup Location: ```~\bakup```
+Default Config File Location: ```\etc\bakup\config.json```<br>
+Default Backup Location: ```~\bakup```<br>
 Edit the Config file to change preferred backup location, source directories, and number of backups kept.
 
 ### Crontab
@@ -26,6 +26,6 @@ By Default this package will enable the following crontab jobs under the root us
 ```
 
 ## Other Functionality
-This package has 4 different types of backups: manual, hourly, daily, and weekly.
-To remove all, but 1 of each type of backup files run command: ```bakup-autoremove```
+This package has 4 different types of backups: manual, hourly, daily, and weekly.<br>
+To remove all, but 1 of each type of backup files run command: ```bakup-autoremove```<br>
 To purge all backup files run command: ```bakup-purge```
