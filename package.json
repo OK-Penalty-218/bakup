@@ -2,7 +2,7 @@
   "displayName": "ubuntu-bakup",
   "name": "@ok-penalty-218/ubuntu-bakup",
   "author": "ok-penalty-218",  
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "automated bakups for ubuntu and debian based systems",
   "main": "dist/index.js",
   "license": "GNU",
