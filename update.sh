@@ -20,4 +20,7 @@ echo "Installing backup scripts to $TARGET_DIR..."
 cp scripts/* "$TARGET_DIR"
 chmod +x "$TARGET_DIR"/*
 
+# Move all other files to /etc/bakup
+echo "Installing configuration files to $CONFIG_DIR..."
+cp config/config.json "$CONFIG_DIR"
 echo "Update complete."
