@@ -11,7 +11,7 @@ fi
 
 # Read backup directory and source directories from the config file using jq
 backup_dir=$(jq -r '.backupDir' "$CONFIG_FILE")
-source_dirs=$(jq -r '.sourceDirs | join(" ")' "$CONFIG_FILE")
+source_dirs=($(jq -r '.sourceDirs[]' "$CONFIG_FILE"))
 
 # Read the number of backups to keep for this specific backup type (e.g., weekly, daily, etc.)
 backup_type=daily  # This should be passed as an argument when calling the script (weekly, daily, etc.)
