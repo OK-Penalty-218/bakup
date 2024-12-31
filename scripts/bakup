@@ -2,7 +2,7 @@
 
 # Configuration
 backup_dir="~backups"
-source_dirs=("/lib" "/run" "/sys" "/bin" "/etc" "/opt" "/sbin" "/usr" "/root" "/boot" "/home" "/src")
+source_dirs=("/lib" "/run" "/sys" "/bin" "/etc" "/opt" "/sbin" "/usr" "/root" "/boot" "/home" "/srv" "/var")
 
 # Number of backup copies to retain
 num_backups_to_keep=2
