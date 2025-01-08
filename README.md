@@ -4,9 +4,13 @@ This package provides automated backups for Ubuntu and Debian-based systems.
 
 ## Installation
 Install globally using npm:<br>
-```npm install -g @ok-penalty-218/ubuntu-bakup@1.2.4```<br>
+```bash 
+npm install -g @ok-penalty-218/ubuntu-bakup@1.2.4
+```
 or<br>
-```npm install -g https://github.com/OK-Penalty-218/bakup.git```<br>
+```bash
+npm install -g https://github.com/OK-Penalty-218/bakup.git
+```
 
 ## Configuration Setup
 Default Config File Location: ```\etc\bakup\config.json```<br>
