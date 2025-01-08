@@ -25,8 +25,7 @@ Run command:
 ```bash
 bakup
 ```
-In order to verify functionality. The command will run a manual backup.<br>
-<br>
+In order to verify functionality. The command will run a manual backup.
 
 ### Crontab
 By Default this package will enable the following crontab jobs under the root user:
@@ -40,8 +39,7 @@ Use command:
 ```bash
 sudo crontab -e
 ```
-In order to edit your crontab jobs or change the times at which your bakups run.<br>
-<br>
+In order to edit your crontab jobs or change the times at which your bakups run.
 
 ## Other Functionality
 This package has 4 different types of backups: manual, hourly, daily, and weekly.<br>
