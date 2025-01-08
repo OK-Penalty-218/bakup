@@ -20,8 +20,9 @@
   "files": [
     "install.sh",
     "uninstall.sh",
-    "config/",
-    "scripts/"  
+    "update.sh",
+    "config/*",
+    "scripts/*"  
   ],
   "scripts": {
     "install": "sh ./install.sh",
