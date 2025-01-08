@@ -4,17 +4,17 @@ This package provides automated backups for Ubuntu and Debian-based systems.
 
 ## Installation
 Install globally using npm:
-```bash
-npm install -g @ok-penalty-218/ubuntu-bakup@latest
-```
+```npm install -g @ok-penalty-218/ubuntu-bakup@1.2.4```<br>
+or
+```npm install -g https://github.com/OK-Penalty-218/bakup.git```<br>
 
-## Post-Insallation
-Run command ```bakup``` to verify functionality and to run a manual backup following installation.
-
-## Configuration
+## Configuration Setup
 Default Config File Location: ```\etc\bakup\config.json```<br>
 Default Backup Location: ```~\bakup```<br>
 Edit the Config file to change preferred backup location, source directories, and number of backups kept.
+
+## Post-Insallation/Configuration
+Run command ```bakup``` to verify functionality. The command will run a manual backup.
 
 ### Crontab
 By Default this package will enable the following crontab jobs under the root user:
@@ -25,10 +25,12 @@ By Default this package will enable the following crontab jobs under the root us
 0 * * * * /usr/local/bin/bakup-hourly #Runs an hourly backup at the top of every hour. 
 ```
 
+Use command ```sudo crontab -e``` to edit your crontab jobs or change the times at which your bakups run.
+
 ## Other Functionality
 This package has 4 different types of backups: manual, hourly, daily, and weekly.<br>
-To remove all, but 1 of each type of backup run command: ```bakup-autoremove```<br>
-To purge all backup files run command: ```bakup-purge```
+To remove all bakup files, but leave 1 of each type of backup run command: ```bakup-autoremove```<br>
+To purge all backup files run command: ```bakup-purge```<br>
 To do a manual backup run command: ```bakup```<br>
 
 ### Notes
