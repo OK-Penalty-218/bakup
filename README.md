@@ -21,7 +21,12 @@ Default Backup Location: ```~\bakup```<br>
 Edit the Config file to change preferred backup location, source directories, and number of backups kept.
 
 ## Post-Insallation/Configuration
-Run command ```bakup``` to verify functionality. The command will run a manual backup.
+Run command:
+```bash
+bakup
+```
+In order to verify functionality. The command will run a manual backup.<br>
+<br>
 
 ### Crontab
 By Default this package will enable the following crontab jobs under the root user:
@@ -31,12 +36,12 @@ By Default this package will enable the following crontab jobs under the root us
 0 3 * * * /usr/local/bin/bakup-daily #Runs a daily backup at 3am.
 0 * * * * /usr/local/bin/bakup-hourly #Runs an hourly backup at the top of every hour. 
 ```
-
-Use command 
+Use command: 
 ```bash
 sudo crontab -e
 ```
-to edit your crontab jobs or change the times at which your bakups run.
+In order to edit your crontab jobs or change the times at which your bakups run.<br>
+<br>
 
 ## Other Functionality
 This package has 4 different types of backups: manual, hourly, daily, and weekly.<br>
