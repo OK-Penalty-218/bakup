@@ -23,7 +23,7 @@ Edit the Config file to change preferred backup location, source directories, an
 ## Post-Insallation/Configuration
 Run command:
 ```bash
-bakup
+sudo bakup
 ```
 In order to verify functionality. The command will run a manual backup.
 
