@@ -30,6 +30,6 @@
     "update": "sh ./update.sh" 
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://github.com/OK-Penalty-218/bakup.git"
   }
 } 
