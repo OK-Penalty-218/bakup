@@ -15,9 +15,9 @@ npm install -g https://github.com/OK-Penalty-218/bakup.git
 ## Configuration Setup
 Default Config File Location: 
 ```bash
-\etc\bakup\config.json
+/etc/bakup/config.json
 ```
-Default Backup Location: ```~\bakup```<br>
+Default Backup Location: ```~/bakup```<br>
 Edit the Config file to change preferred backup location, source directories, and number of backups kept.
 
 ## Post-Insallation/Configuration
