@@ -27,6 +27,6 @@ cp config/config.json "$CONFIG_DIR"
 echo "Setting up automated crontab backup jobs..."
 (crontab -l 2>/dev/null; echo "0 4 * * 7  $BIN_DIR/bakup-weekly") | crontab -
 (crontab -l 2>/dev/null; echo "0 3 * * * $BIN_DIR/bakup-daily") | crontab -
-(crontab -l 2>/dev/null; echo "0 * * * * $BIN_DIR/bakup-hourly") | crontab -
+(crontab -l 2>/dev/null; echo "30 * * * * $BIN_DIR/bakup-hourly") | crontab -
 
 echo "Installation complete."

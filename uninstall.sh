@@ -31,3 +31,4 @@ echo "Removing crontab jobs for backup..."
 crontab -l 2>/dev/null | grep -v "$TARGET_DIR/backup-" | crontab -
 
 echo "Uninstallation complete."
+echo "Your backup files have not been affected; ensure crontab jobs have been removed by running 'sudo crontab -l'."

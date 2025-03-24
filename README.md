@@ -5,9 +5,9 @@ This package provides automated backups for Ubuntu and Debian-based systems.
 ## Installation
 Install globally using npm:<br>
 ```bash 
-npm install -g @ok-penalty-218/ubuntu-bakup@1.2.4
+npm install -g @ok-penalty-218/ubuntu-bakup@latest
 ```
-or<br>
+or for the latest beta build<br>
 ```bash
 npm install -g https://github.com/OK-Penalty-218/bakup.git
 ```
@@ -33,7 +33,7 @@ By Default this package will enable the following crontab jobs under the root us
 # m h  dom mon dow   command
 0 4 * * 7 /usr/local/bin/bakup-weekly #Runs a weekly backup every Sunday at 4am.
 0 3 * * * /usr/local/bin/bakup-daily #Runs a daily backup at 3am.
-0 * * * * /usr/local/bin/bakup-hourly #Runs an hourly backup at the top of every hour. 
+30 * * * * /usr/local/bin/bakup-hourly #Runs an hourly backup at the top of every hour. 
 ```
 Use command: 
 ```bash

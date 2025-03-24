@@ -2,7 +2,7 @@
   "displayName": "ubuntu-bakup",
   "name": "@ok-penalty-218/ubuntu-bakup",
   "author": "ok-penalty-218",  
-  "version": "1.2.4",
+  "version": "1.2.5-beta",
   "description": "automated bakups for ubuntu and debian based systems",
   "main": "dist/index.js",
   "license": "GNU",
@@ -22,13 +22,14 @@
     "uninstall.sh",
     "update.sh",
     "config/*",
-    "scripts/*"  
+    "scripts/*"
   ],
   "scripts": {
     "install": "sh ./install.sh",
     "uninstall": "sh ./uninstall.sh",
-    "update": "sh ./update.sh" 
+    "update": "sh ./update.sh"
   },
+  #remove this when publishing official version to npmjs registry.
   "publishConfig": {
     "registry": "https://github.com/OK-Penalty-218/bakup.git"
   }
