@@ -6,7 +6,7 @@ CONFIG_DIR="/etc/bakup"
 
 # Ensure the script is run with root privileges
 if [ "$EUID" -ne 0 ]; then
-  echo "Please run as root (e.g., sudo ./install.sh)"
+  echo "Please run as root (e.g., sudo npm update @ok-penalty-218/ubuntu-bakup)"
   exit 1
 fi
 

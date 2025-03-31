@@ -1,5 +1,5 @@
 {
-  "backupDir": "configure-backup-directory-in-etc-bakup-config.json",
+  "backupDir": "bakup",
   "sourceDirs": [
     "/lib", 
     "/run", 

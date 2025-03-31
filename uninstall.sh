@@ -2,7 +2,7 @@
 
 # Ensure the script is run with root privileges
 if [ "$EUID" -ne 0 ]; then
-  echo "Please run as root (e.g., sudo ./uninstall.sh)"
+  echo "Please run as root (e.g., sudo npm remove -g @ok-penalty-218/ubuntu-bakup)"
   exit 1
 fi
 

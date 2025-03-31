@@ -6,7 +6,7 @@ CONFIG_DIR="/etc/bakup"
 
 # Ensure the script is run with root privileges
 if [ "$EUID" -ne 0 ]; then
-  echo "Please run as root (e.g., sudo ./install.sh)"
+  echo "Please run as root (e.g., sudo npm install -g @ok-penalty-218/ubuntu-bakup)"
   exit 1
 fi
 
@@ -21,7 +21,7 @@ chmod +x "$BIN_DIR"/*
 
 # Move all other files to /etc/bakup
 echo "Installing configuration files to $CONFIG_DIR..."
-cp config/config.json "$CONFIG_DIR"
+cp config/* "$CONFIG_DIR"
 
 # Add crontab jobs
 echo "Setting up automated crontab backup jobs..."
